@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Post — Howie’s Ride Tales</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  
+  <nav class="nav">
+    <div class="nav-inner container">
+      <div class="brand">
+        <div class="logo"></div>
+        <span>Howie’s Ride Tales</span>
+      </div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="stories.html">Stories</a>
+        <a href="tips.html">Driver Tips</a>
+        <a href="about.html">About</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container section">
+    <article id="post" class="card" style="padding:24px"></article>
+  </main>
+  <script>
+    function getId(){
+      const url = new URL(location.href);
+      return url.searchParams.get('id');
+    }
+    (async () => {
+      const id = getId();
+      if(!id) return qs('#post').innerHTML='<p class="small">Missing post id.</p>';
+      try {
+        const posts = await fetchJSON('data/posts.json');
+        const p = posts.find(x=>String(x.id)===String(id));
+        if(!p) return qs('#post').innerHTML='<p class="small">Post not found.</p>';
+        qs('#post').innerHTML = `
+          <div class="meta">${formatDate(p.date)} · <span class="badge">${p.tag}</span></div>
+          <h1 style="margin:6px 0 12px">${p.title}</h1>
+          <p class="small" style="margin:-4px 0 18px">${p.read} min read</p>
+        `;
+        const art = qs('#post');
+        const blocks = (p.content||[]).map(b=>{
+          if(b.type==='p') return `<p>${b.text}</p>`;
+          if(b.type==='tip') return `<div class="notice"><strong>Pro tip:</strong> ${b.text}</div>`;
+          if(b.type==='ul') return `<ul>` + b.items.map(i=>`<li>${i}</li>`).join('') + `</ul>`;
+          return '';
+        }).join('');
+        art.innerHTML += blocks;
+      } catch(e) {
+        qs('#post').innerHTML = '<p class="small">Could not load post.</p>';
+      }
+    })();
+  </script>
+  
+  <footer class="footer container">
+    <div class="small">© <span id="y"></span> Howie’s Ride Tales — South Bend, IN · Built with HTML/CSS/JS · Deploy on GitHub Pages or Netlify.</div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+
+</body>
+</html>

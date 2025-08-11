@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact — Howie’s Ride Tales</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  
+  <nav class="nav">
+    <div class="nav-inner container">
+      <div class="brand">
+        <div class="logo"></div>
+        <span>Howie’s Ride Tales</span>
+      </div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="stories.html">Stories</a>
+        <a href="tips.html">Driver Tips</a>
+        <a href="about.html">About</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container section">
+    <h1>Contact</h1>
+    <p class="small">This form uses Formspree (or similar) so messages go straight to your email without exposing it.</p>
+    <form class="card" style="padding:24px" method="POST" action="https://formspree.io/f/your-id-here">
+      <div class="row">
+        <div>
+          <label for="name">Name</label>
+          <input class="input" id="name" name="name" placeholder="Your name"/>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input class="input" id="email" name="_replyto" placeholder="you@example.com"/>
+        </div>
+      </div>
+      <label for="msg">Message</label>
+      <textarea id="msg" name="message" rows="6" placeholder="What’s up?"></textarea>
+      <div style="display:flex;gap:12px;align-items:center;margin-top:12px">
+        <button class="btn primary" type="submit">Send</button>
+        <span class="small">Swap the <code>action</code> URL with your Formspree endpoint.</span>
+      </div>
+    </form>
+  </main>
+  
+  <footer class="footer container">
+    <div class="small">© <span id="y"></span> Howie’s Ride Tales — South Bend, IN · Built with HTML/CSS/JS · Deploy on GitHub Pages or Netlify.</div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+
+</body>
+</html>

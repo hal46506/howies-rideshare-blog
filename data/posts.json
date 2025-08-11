@@ -1,0 +1,84 @@
+[
+  {
+    "id": "goat-ride",
+    "title": "The 2am goat (and why I now ask clarifying questions)",
+    "date": "2025-08-05",
+    "tag": "Story",
+    "read": 4,
+    "excerpt": "Some nights are quiet. Other nights… you’re negotiating with a goat in a cul-de-sac.",
+    "content": [
+      {
+        "type": "p",
+        "text": "It started like any sleepy airport drop: low chatter, soft radio, empty streets."
+      },
+      {
+        "type": "p",
+        "text": "Then came the bleat. Passenger door opens, in hops a very polite goat. No warning."
+      },
+      {
+        "type": "tip",
+        "text": "Ask if riders have ‘companions’—human or otherwise—before you roll."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Keep a towel in the trunk.",
+          "Have a firm ‘no farm animals’ policy ready.",
+          "Laugh about it later; screenshot the 5⭐ if you earned it."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "game-day-chaos",
+    "title": "Game day near Notre Dame: survive and profit",
+    "date": "2025-08-01",
+    "tag": "Strategy",
+    "read": 5,
+    "excerpt": "Stadium surge looks good until you’re stuck. Here’s how to make money without frying your nerves.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Surge bait is real. If you can’t move, you’re not earning."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Stage near exits, not the stadium gates.",
+          "Walk pickup to the rider when safe—send the pin, avoid the gridlock.",
+          "Set a personal floor for long pickups."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "After the 3rd quarter, head to the hotel belt. Departures beat arrivals."
+      }
+    ]
+  },
+  {
+    "id": "music-tax",
+    "title": "The aux cord ‘music tax’ debate",
+    "date": "2025-07-28",
+    "tag": "Opinion",
+    "read": 3,
+    "excerpt": "Charging a buck to play DJ? Kidding… mostly. Here’s my playbook for music vibes that keep ratings high.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Silence beats bad tunes. But the right soundtrack changes tips."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Default: chill playlists at a low volume.",
+          "Offer 2–3 genre buttons riders can pick quickly.",
+          "Keep an emergency ‘no lyrics’ set for 5am airport runs."
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "For your sanity, block explicit tracks before weekend bar close."
+      }
+    ]
+  }
+]

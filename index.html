@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Howie’s Ride Tales — South Bend Rideshare Stories</title>
+  <meta name="description" content="Life behind the wheel in South Bend — stories, tips, and gear from a full-time rideshare driver."/>
+  <meta property="og:title" content="Howie’s Ride Tales"/>
+  <meta property="og:description" content="Life behind the wheel in South Bend — stories, tips, and gear."/>
+  <meta property="og:type" content="website"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  
+  <nav class="nav">
+    <div class="nav-inner container">
+      <div class="brand">
+        <div class="logo"></div>
+        <span>Howie’s Ride Tales</span>
+      </div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="stories.html">Stories</a>
+        <a href="tips.html">Driver Tips</a>
+        <a href="about.html">About</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <div class="hero-grid">
+      <div class="card" style="padding:24px">
+        <div class="kicker">Rideshare · South Bend</div>
+        <h1 class="title">Life behind the wheel — unfiltered.</h1>
+        <p>Stories from late-night airport runs, game day chaos near Notre Dame, and everything in between — plus the simple tools that keep the wheels turning.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="stories.html">Read the stories</a>
+          <a class="btn" href="tips.html">Driver tips & gear</a>
+        </div>
+        <p class="small" style="margin-top:10px">New here? Tap <span class="kbd">Stories</span> to start with the greatest hits.</p>
+      </div>
+      <div class="blob card"></div>
+    </div>
+  </header>
+
+  <section class="section container">
+    <h2>Latest stories</h2>
+    <div id="latest" class="grid"></div>
+  </section>
+
+  <script>
+    (async () => {
+      try{
+        const posts = await fetchJSON('data/posts.json');
+        const sorted = posts.sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,3);
+        const grid = document.getElementById('latest');
+        grid.innerHTML = sorted.map(p => `
+          <article class="post-card card">
+            <div class="meta">${formatDate(p.date)} · <span class="badge">${p.tag}</span></div>
+            <h3><a href="post.html?id=${encodeURIComponent(p.id)}">${p.title}</a></h3>
+            <p>${p.excerpt}</p>
+            <a class="btn" href="post.html?id=${encodeURIComponent(p.id)}">Read</a>
+          </article>
+        `).join('');
+      }catch(e){
+        document.getElementById('latest').innerHTML = '<p class="small">Could not load posts yet.</p>';
+      }
+    })();
+  </script>
+
+  
+  <footer class="footer container">
+    <div class="small">© <span id="y"></span> Howie’s Ride Tales — South Bend, IN · Built with HTML/CSS/JS · Deploy on GitHub Pages or Netlify.</div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+
+</body>
+</html>
